@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const usuarioModel = require('../src/models/usuarioModel');
+const usuarioModel = require('../models/usuarioModel');
 
 async function registrar({nome, email, senha}){
     const jaExiste = await usuarioModel.buscarPorEmail(email);
