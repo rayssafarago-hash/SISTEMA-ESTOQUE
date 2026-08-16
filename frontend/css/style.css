@@ -1,0 +1,181 @@
+:root {
+  --azul: #2563eb;
+  --azul-escuro: #1e40af;
+  --cinza: #f1f5f9;
+  --cinza-borda: #e2e8f0;
+  --texto: #1e293b;
+  --verde: #16a34a;
+  --vermelho: #dc2626;
+  --amarelo: #f59e0b;
+}
+ 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--cinza);
+  color: var(--texto);
+  line-height: 1.5;
+}
+ 
+/* ===== Tela de login ===== */
+.login-tela {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  width: 360px;
+}
+.login-card h1 { font-size: 22px; margin-bottom: 4px; color: var(--azul-escuro); }
+.login-card p.sub { color: #64748b; margin-bottom: 24px; font-size: 14px; }
+ 
+/* ===== Cabecalho ===== */
+header.topo {
+  background: var(--azul-escuro);
+  color: #fff;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header.topo h1 { font-size: 18px; }
+header.topo .usuario { font-size: 14px; display: flex; gap: 12px; align-items: center; }
+ 
+/* ===== Navegacao por abas ===== */
+nav.abas {
+  background: #fff;
+  display: flex;
+  gap: 4px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--cinza-borda);
+}
+nav.abas button {
+  background: none;
+  border: none;
+  padding: 14px 18px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #64748b;
+  border-bottom: 3px solid transparent;
+}
+nav.abas button.ativa {
+  color: var(--azul);
+  border-bottom-color: var(--azul);
+  font-weight: 600;
+}
+ 
+/* ===== Conteudo ===== */
+main { padding: 24px; max-width: 1100px; margin: 0 auto; }
+.secao { display: none; }
+.secao.ativa { display: block; }
+.secao h2 { margin-bottom: 16px; font-size: 20px; }
+ 
+/* ===== Cards da dashboard ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid var(--cinza-borda);
+}
+.card .rotulo { font-size: 13px; color: #64748b; }
+.card .valor { font-size: 28px; font-weight: 700; margin-top: 4px; color: var(--azul-escuro); }
+ 
+/* ===== Botoes ===== */
+.btn {
+  background: var(--azul);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn:hover { background: var(--azul-escuro); }
+.btn-sec { background: #64748b; }
+.btn-perigo { background: var(--vermelho); }
+.btn-pequeno { padding: 6px 10px; font-size: 13px; }
+ 
+/* ===== Tabelas ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--cinza-borda);
+}
+th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--cinza-borda); font-size: 14px; }
+th { background: var(--cinza); font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+.acoes { display: flex; gap: 8px; }
+ 
+/* ===== Formularios ===== */
+.form-linha { margin-bottom: 14px; }
+label { display: block; font-size: 13px; margin-bottom: 6px; color: #334155; }
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+}
+.barra-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+ 
+/* ===== Modal ===== */
+.modal-fundo {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.modal-fundo.aberto { display: flex; }
+.modal {
+  background: #fff;
+  padding: 28px;
+  border-radius: 12px;
+  width: 440px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal h3 { margin-bottom: 18px; }
+.modal-acoes { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+ 
+/* ===== Etiquetas / avisos ===== */
+.tag { padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.tag-entrada { background: #dcfce7; color: var(--verde); }
+.tag-saida { background: #fee2e2; color: var(--vermelho); }
+.tag-baixo { background: #fef3c7; color: var(--amarelo); }
+ 
+.mensagem {
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  display: none;
+}
+.mensagem.erro { background: #fee2e2; color: var(--vermelho); display: block; }
+.mensagem.sucesso { background: #dcfce7; color: var(--verde); display: block; }
+ 
+.vazio { text-align: center; color: #94a3b8; padding: 30px;}
